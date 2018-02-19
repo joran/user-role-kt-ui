@@ -1,0 +1,51 @@
+body{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+
+div.navbar {
+    width: 100%;
+    background-color: #ddd;
+    padding: 20px 10px 20px 10px;
+}
+
+div.navbar .title{
+    padding: 10px 30px 10px 10px;
+    font-weight: bold;
+}
+div.navbar a{
+    padding: 20px 10px 20px 10px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+footer {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 10px 20px 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+footer div.license{
+    font-size: small;
+
+}
