@@ -19,48 +19,49 @@ interface EditUserProps : RProps {
 }
 
 class EditUser(props: EditUserProps) : RComponent<EditUserProps, EditUserState>(props) {
-    override fun componentDidMount() {
-        setState {
-            userId = props.user.userId
-            name = props.user.name
-        }
+    override fun EditUserState.init(props: EditUserProps){
+        userId = props.user.userId
+        name = props.user.userId
     }
 
-    private fun onUsernameChange() = {event: Event ->
+    private fun onUsernameChanged() = { event: Event ->
         val target = event.target as HTMLInputElement
-        console.info("onUsernameChange", target.value)
         setState{
             userId = target.value
         }
     }
-    private fun handleNameChange(value: String) {
+    private fun onNameChanged() = { event: Event ->
+        val target = event.target as HTMLInputElement
         setState{
-            name = value
+            name = target.value
         }
     }
     override fun RBuilder.render() {
         div {
             form{
+                div{
+                    label { +"Username: " }
+                    input(type = InputType.text) {
+                        attrs {
+                            placeholder = "Username"
+                            value = state.userId
+                            onChangeFunction = onUsernameChanged()
+                        }
+                    }
+                }
                 div {
-                    div {
-                        label { +"Username:" }
-                        input(type = InputType.text){
-                            attrs.placeholder = "Username"
-                            attrs.value = state.userId
-                            attrs.onChangeFunction = onUsernameChange()
+                    label { +"Full name: " }
+                    input(type = InputType.text) {
+                        attrs {
+                            placeholder = "Full name"
+                            value = state.name
+                            onChangeFunction = onNameChanged()
                         }
                     }
-                    div {
-                        label { +"Full name:" }
-                        input(type = InputType.text){
-                            attrs.placeholder = "Full name"
-                            attrs.value = props.user.name
-                        }
-                    }
-                    div {
-                        label { +"Roles:" }
-                        input(type = InputType.text){
-                        }
+                }
+                div {
+                    label { +"Roles: " }
+                    input(type = InputType.text) {
                     }
                 }
                 input (type = InputType.submit){  }
